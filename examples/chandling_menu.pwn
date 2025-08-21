@@ -33,7 +33,7 @@ public OnFilterScriptInit()
 public OnPlayerConnect(playerid)
 {
 	if(IsPlayerUsingCHandling(playerid))
-		printf("[cHandling] Player id %0 is using CHandling plugin");
+		printf("[cHandling] Player id %d is using CHandling plugin", playerid);
 	return 1;
 }
 
@@ -80,8 +80,10 @@ ShowCHandlingList(playerid)
 #if defined ZCMD
 CMD:chandling(playerid)
 {
-	if(!IsPlayerUsingCHandling(playerid))
+	if(!IsPlayerUsingCHandling(playerid)) {
+		SendClientMessage(playerid, -1, "You are not using CHandling plugin!");
 		return 0;
+	}
 
 	if(GetPlayerState(playerid) != PLAYER_STATE_DRIVER || !IsPlayerInAnyVehicle(playerid))
 			return SendClientMessage(playerid, -1, "You must be driving a vehicle to use CHandling");
