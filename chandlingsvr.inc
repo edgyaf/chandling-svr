@@ -13,6 +13,10 @@
 #endif
 #define _chandlingsvr_included
 
+#include <a_samp>
+#include <PawnPlus>
+#include <Pawn.RakNet>
+
 enum CHandlingAttrib
 {
 	HANDL_IDENTIFIER = 1, // A
@@ -54,7 +58,7 @@ enum CHandlingAttrib
 };
 
 /* Handling flags */
-enum
+enum _:VehicleHandlingFlag
 {
 	HFLAG_1G_BOOST = 0x1,
 	HFLAG_2G_BOOST = 0x2,
@@ -87,7 +91,7 @@ enum
 };
 
 /* Model flags */
-enum
+enum _:VehicleHandlingModelFlag
 {
 	MFLAG_IS_VAN = 0x1,
 	MFLAG_IS_BUS = 0x2,
@@ -149,22 +153,24 @@ enum CHandlingAttribType
 };
 
 /* Natives list */
-native CHandlingAttribType:GetHandlingAttribType(CHandlingAttrib:attribute);
+forward CHandlingAttribType:GetHandlingAttribType(CHandlingAttrib:attribute);
 
-native IsPlayerUsingCHandling(playerid);
-native ResetModelHandling(modelid);
-native ResetVehicleHandling(vehicleid);
-native SetVehicleHandlingFloat(vehicleid, CHandlingAttrib:attribute, Float:value);
-native SetVehicleHandlingInt(vehicleid, CHandlingAttrib:attribute, value);
+forward IsPlayerUsingCHandling(playerid);
+forward ResetModelHandling(modelid);
+forward ResetVehicleHandling(vehicleid);
+forward SetVehicleHandlingFloat(vehicleid, CHandlingAttrib:attribute, Float:value);
+forward SetVehicleHandlingInt(vehicleid, CHandlingAttrib:attribute, value);
 
-native SetModelHandlingFloat(modelid, CHandlingAttrib:attribute, Float:value);
-native SetModelHandlingInt(modelid, CHandlingAttrib:attribute, value);
+forward SetModelHandlingFloat(modelid, CHandlingAttrib:attribute, Float:value);
+forward SetModelHandlingInt(modelid, CHandlingAttrib:attribute, value);
 
-native GetVehicleHandlingFloat(vehicleid, CHandlingAttrib:attribute, &Float:result);
-native GetVehicleHandlingInt(vehicleid, CHandlingAttrib:attribute, &result);
+forward GetVehicleHandlingFloat(vehicleid, CHandlingAttrib:attribute, &Float:result);
+forward GetVehicleHandlingInt(vehicleid, CHandlingAttrib:attribute, &result);
 
-native GetModelHandlingFloat(modelid, CHandlingAttrib:attribute, &Float:result);
-native GetModelHandlingInt(modelid, CHandlingAttrib:attribute, &result);
+forward GetModelHandlingFloat(modelid, CHandlingAttrib:attribute, &Float:result);
+forward GetModelHandlingInt(modelid, CHandlingAttrib:attribute, &result);
 
-native GetDefaultHandlingFloat(modelid, CHandlingAttrib:attribute, &Float:value);
-native GetDefaultHandlingInt(modelid, CHandlingAttrib:attribute, &value);
+forward GetDefaultHandlingFloat(modelid, CHandlingAttrib:attribute, &Float:value);
+forward GetDefaultHandlingInt(modelid, CHandlingAttrib:attribute, &value);
+
+#include <chandlingsvr\main>

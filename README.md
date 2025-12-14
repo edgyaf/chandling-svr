@@ -1,5 +1,8 @@
 # CHandling Server
 
+This port is work in progress. The code is a mess and it doesn't work yet. Come back later.
+
+---
 
 This is a SA:MP server plugin allowing server control of vehicle handlings by communicating with a client-sided plugin ([chandling](https://github.com/dotSILENT/chandling))
 
